@@ -1,0 +1,52 @@
+a) Loading data from CSV file 
+
+import pandas as pd 
+a = pd.read_csv(r"C:\Users\syste\Desktop\dataset1.csv") 
+print(a) 
+
+b) Compute the basic statistics of given data - shape, no. of columns, Mean 
+
+# Shape of the data 
+import pandas as pd 
+a = pd.read_csv(r"C:\Users\syste\Desktop\dataset1.csv") 
+print('shape:', a.shape) 
+# Number of columns 
+cols = len(a.axes[1]) 
+print('number of columns:', cols) 
+# Mean of the "MathScore" column 
+m = a["MathScore"].mean() 
+print('mean of mathscore:', m)
+
+c) Splitting a data frame on values of categorical variables 
+import pandas as pd 
+# Sample data 
+data= {'gender': ['M', 'F', 'M', 'F', 'M'], 
+ 'ethnicgroup': ['A', 'B', 'A', 'C', 'B'], 
+ 'parental_education': ['High School', 'Bachelor', 'Master', 'Bachelor', 'High School'], 
+ 'lunch_type': ['Standard', 'Free/Reduced', 'Standard', 'Standard', 'Free/Reduced'], 
+ 'test_preparation': ['Completed', 'None', 'None', 'Completed', 'None'], 
+ 'mathscore': [85, 90, 78, 88, 92], 
+ 'reading_score': [82, 88, 75, 85, 90], 
+ 'writing_score': [80, 85, 72, 82, 88]} 
+df = pd.DataFrame(data) 
+# Splitting based on categorical variables 
+gender_groups = df.groupby('gender') 
+ethnic_groups = df.groupby('ethnicgroup') 
+parental_edu_groups = df.groupby('parental_education') 
+lunch_groups = df.groupby('lunch_type') 
+test_prep_groups = df.groupby('test_preparation') 
+# Example of accessing a group 
+print(gender_groups.get_group('M')) # Get all rows where gender is 'M'
+
+d) Visualize data using Scatter plot 
+import matplotlib.pyplot as plt 
+import pandas as pd 
+# Load the data 
+a = pd.read_csv(r"C:\Users\syste\Desktop\dataset1.csv") 
+# Create a scatter plot 
+plt.scatter(x=a['MathScore'], y=a['EthnicGroup']) 
+# Customize the plot 
+plt.xlabel('Math Score') 
+plt.ylabel('Ethnic Group') 
+plt.title('Scatter Plot of Math Score vs Ethnic Group') 
+plt.show()

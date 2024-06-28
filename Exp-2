@@ -1,0 +1,59 @@
+a) 
+#dot product of two arrays 
+import numpy as np 
+a=np.array([2,3,4]) 
+b=np.array([3,4,5]) 
+print("dot product of one dimension is:",np.dot(a,b)) 
+
+#matrix elements multiplication 
+import numpy as np 
+a=np.array([[1,5],[3,6]]) 
+b=np.array([[1,5],[3,6]]) 
+print("element multiplication of matrix:",np.multiply(a,b)) 
+
+#matrix elements multiplication 
+import numpy as np 
+a=np.array([[1,5],[3,6]]) 
+b=np.array([[1,5],[3,6]]) 
+#matrix multiplication 
+print("matrix multiplication",np.matmul(a,b)) 
+
+b) Compute the values of a matrix 
+
+# matrix elements multiplication 
+import numpy as np 
+a = np.array([[1, 2], [3, 4]]) 
+eigvalues, eigvectors = np.linalg.eig(a) 
+print('Eigenvalues:', eigvalues) 
+print('Eigenvectors:', eigvectors) 
+
+c) Solve a linear matrix equation such as 3 * x0 + x1 = 9, x0 + 2 * x1 
+
+#linear matric equation 
+import numpy as np 
+a=np.array([[3,1],[1,2]]) 
+b=np.array([[9],[8]]) 
+a_inv=np.linalg.inv(a) 
+e=np.matmul(a_inv,b) 
+print("linearequation:",e) 
+
+d) Compute the multiplicative inverse of a matrix 
+
+import numpy as np 
+a=np.array([[3,1],[1,2]]) 
+a_inv=np.linalg.inv(a) 
+print("ainverse:",a_inv) 
+
+e) Compute the rank of a matrix 
+
+#matrix rank 
+import numpy as np 
+a=np.array([[3,1],[1,2]]) 
+b=np.linalg.matrix_rank(a) 
+print('rank:',b)
+
+f) Compute the determinant of an array 
+import numpy as np 
+a=np.array([[3,1],[1,2]]) 
+b=np.linalg.det(a) 
+print('determinant:',b) 

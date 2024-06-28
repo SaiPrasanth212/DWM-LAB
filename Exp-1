@@ -1,0 +1,69 @@
+a)
+import numpy as np 
+#creation of multi-dimensional array 
+a=np.array ([[1,2,3],[2,3,4],[3,4,5]]) 
+#shape 
+b=a.shape 
+print("shape:",a.shape) 
+#dimension 
+c=a.ndim 
+print("dimensions:",a.ndim)
+
+b) 
+import numpy as np 
+#matrixfullofzeros 
+z=np.zeros((2,2)) 
+print("zeros:",z) 
+#matrixfullofones 
+o=np.ones((2,2)) 
+print("ones:",o)
+
+c)
+import numpy as np 
+# matrix reshape 
+a = np.array([[1, 2, 3, 4], [2, 3, 4, 5], [3, 4, 5, 6], [4, 5, 6, 7]]) 
+b = a.reshape(4, 2, 2) 
+print("reshape:", b) 
+# matrix flatten 
+c = a.flatten() 
+print("flatten: ", c)
+
+d)
+import numpy as np 
+#Appending data vertically 
+x=np.array([[10,20],[80,90]]) 
+y=np.array([[30,40],[60,70]]) 
+v=np.vstack((x,y)) 
+print("vertically:",v) 
+#Appendingdatahorizontally 
+h=np.hstack((x,y)) 
+print("horizontally:",h) 
+
+e) 
+import numpy as np 
+a = np.array([[1, 2, 3, 4], [2, 3, 4, 5], [3, 4, 5, 6], [4, 5, 6, 7]]) 
+temp = a[[0, 1, 2, 3], [1, 1, 1, 1]] 
+print('indexing', temp) 
+# slicing 
+i = a[:, ::2] 
+print('slicing', i) 
+
+f) 
+import numpy as np 
+# min for finding minimum of an array 
+a = np.array([[1, 3, -1, 4], [3, -2, 1, 4]]) 
+b = a.min() 
+print('minimum', b) 
+# max for finding maximum of an array 
+c = a.max() 
+print('maximum', c) 
+a = np.array([1, 2, 3, 4, 5]) 
+# mean 
+d = a.mean() 
+print('mean:', d) 
+# median 
+e = np.median(a) 
+print('median:', e) 
+# standard deviation 
+f = a.std() 
+print('standard deviation', f) 

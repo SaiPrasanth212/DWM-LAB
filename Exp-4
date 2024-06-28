@@ -1,0 +1,83 @@
+a) Load Data, describe the given data and Identify the missing, outliers’ data items. 
+
+
+import pandas as pd 
+import numpy as np 
+import matplotlib.pyplot as plt 
+# Read the dataset into a DataFrame 
+student_data = pd.read_csv("C:\\Users\\syste\\Downloads\\Student (1).csv") 
+# Describe the data 
+print(student_data.describe()) 
+print("\n-----------------------------------------------------------------------------") 
+# Print the first 5 rows 
+print("The First 5 Rows are:") 
+print(student_data.head(5)) 
+print("\n-----------------------------------------------------------------------------") 
+# Check for missing values 
+print("Missing values count:") 
+print(student_data.isnull().sum()) 
+print("\n-----------------------------------------------------------------------------") 
+# Remove rows with missing values 
+student_data = student_data.dropna() 
+print("Dataset after removing missing values:") 
+print(student_data.head(5)) 
+
+
+b) Find correlation among all attributes 
+
+
+# Import the necessary library 
+import pandas as pd 
+# Create a dictionary with the data 
+data = { 
+ 'gender': ['M', 'F', 'M', 'F', 'M'], 
+ 'ethnicgroup': ['A', 'B', 'A', 'C', 'B'], 
+ 'parental_education': ['High School', 'Bachelor', 'Master', 'Bachelor', 'High School'], 
+ 'lunch_type': ['Standard', 'Free/Reduced', 'Standard', 'Standard', 'Free/Reduced'], 
+ 'test_preparation': ['Completed', 'None', 'None', 'Completed', 'None'], 
+ 'mathscore': [85, 90, 78, 88, 92], 
+ 'reading_score': [82, 88, 75, 85, 90], 
+ 'writing_score': [80, 85, 72, 82, 88] 
+} 
+# Create a Pandas DataFrame from the dictionary 
+df = pd.DataFrame(data) 
+# Select only the numeric columns for correlation calculation 
+numeric_cols = ['mathscore', 'reading_score', 'writing_score'] 
+numeric_df = df[numeric_cols] 
+# Calculate the correlation matrix 
+corr_matrix = numeric_df.corr() 
+# Print the correlation matrix 
+print("Correlation Matrix:") 
+print(corr_matrix) 
+
+
+c) visualize correlation matrix 
+
+
+# Import necessary libraries 
+import matplotlib.pyplot as plt 
+import pandas as pd 
+import seaborn as sb 
+# Create a dictionary with the data 
+data = { 
+ 'gender': ['M', 'F', 'M', 'F', 'M'], 
+ 'ethnicgroup': ['A', 'B', 'A', 'C', 'B'], 
+ 'parental_education': ['High School', 'Bachelor', 'Master', 'Bachelor', 'High School'], 
+ 'lunch_type': ['Standard', 'Free/Reduced', 'Standard', 'Standard', 'Free/Reduced'], 
+ 'test_preparation': ['Completed', 'None', 'None', 'Completed', 'None'], 
+ 'mathscore': [85, 90, 78, 88, 92], 
+ 'reading_score': [82, 88, 75, 85, 90], 
+ 'writing_score': [80, 85, 72, 82, 88] 
+} 
+# Create a Pandas DataFrame from the dictionary 
+df = pd.DataFrame(data) 
+# Select only the numeric columns for correlation calculation 
+numeric_cols = ['mathscore', 'reading_score', 'writing_score'] 
+numeric_df = df[numeric_cols] 
+# Calculate the correlation matrix 
+corr_matrix = numeric_df.corr() 
+# Visualize correlation matrix using a heatmap 
+plt.figure(figsize=(10, 8)) 
+sb.heatmap(corr_matrix, annot=True, cmap='coolwarm', fmt=".2f", linewidths=0.5) 
+plt.title('Correlation Heatmap') 
+plt.show()

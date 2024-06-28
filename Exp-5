@@ -1,0 +1,49 @@
+import pandas as pd 
+from sklearn.impute import SimpleImputer 
+from sklearn.preprocessing import KBinsDiscretizer, MinMaxScaler, MaxAbsScaler 
+# Load the dataset 
+data = { 
+ 'A': [1, 2, None, 4, 5], 
+ 'B': [None, 2, 3, None, 5], 
+ 'C': [1, 2, 3, 4, 5] 
+} 
+df = pd.DataFrame(data) 
+# Display the original dataframe 
+print("Original DataFrame:") 
+print(df) 
+# Define a function to handle missing values 
+def handle_missing_values(df, method='mean'): 
+ if method == 'emove': 
+ # Remove rows with missing values 
+ df = df.dropna() 
+ else: 
+ if method == 'ean': 
+ # Impute missing values with mean 
+ imputer = SimpleImputer(strategy='mean') 
+ elif method == 'ode': 
+ # Impute missing values with mode 
+ imputer = SimpleImputer(strategy='most_frequent') 
+ df[df.columns] = imputer.fit_transform(df[df.columns]) 
+ return df 
+# Apply missing value handling function 
+df_handled = handle_missing_values(df, method='mean') 
+# Display the dataframe after handling missing values 
+print("\nDataFrame After Handling Missing Values:") 
+print(df_handled) 
+# Define a function to perform data transformation 
+def data_transformation(df, method='binning'): 
+ if method == 'binning': 
+ # Perform binning transformation 
+ est = KBinsDiscretizer(n_bins=3, encode='ordinal', strategy='uniform') 
+ df[df.columns] = est.fit_transform(df[df.columns]) 
+ elif method == 'normalization': 
+ # Perform normalization transformation 
+ scaler = MinMaxScaler() 
+ # You can also use MaxAbsScaler for MaxAbs normalization 
+ df[df.columns] = scaler.fit_transform(df[df.columns]) 
+ return df 
+# Apply data transformation function 
+df_transformed = data_transformation(df_handled, method='normalization') 
+# Display the dataframe after data transformation 
+print("\nDataFrame After Data Transformation:") 
+print(df_transformed)
